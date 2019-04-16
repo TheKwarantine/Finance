@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block main %}
+    <form action="/register" method="post" id="register">
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" id ="username" name="username" placeholder="Choose Username" type="text" onblur="liveCheck();">
+            <p>
+            <div class="alert alert-success" role="alert" id="success" alight="center" style="display: none; width: 300px; margin-left: auto; margin-right: auto;">Username Available!!!!!</div>
+            <div class="alert alert-danger" role="alert" id="failure" alight="center" style="display: none; width: 300px; margin-left: auto; margin-right: auto;">Username Taken, Sorry.</div>
+            </p>
+        </div>
+        <div class="form-group">
+            <input class="form-control" name="password" placeholder="Create Password" type="password">
+        </div>
+        <div class="form-group">
+            <input class="form-control" name="confirmation" placeholder="Confirm Password" type="password">
+        </div>
+        <button class="btn btn-primary" id="Submit" type="submit" onclick="event.preventDefault(); ajaxCheck();">Register</button>
+    </form>
+
+{% endblock %}

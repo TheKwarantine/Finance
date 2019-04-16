@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quote
+{% endblock %}
+
+{% block main %}
+
+    <!-- Quote at top of page -->
+
+    <br />
+
+    <form action="/quote" method="post">
+        <div class="form-group">
+            <div class="col">
+                <label for="symbol" class="sr-only">Symbol</label>
+                <input name="symbol" class="form-control" type="text" autocomplete="off" autofocus id="symbol" placeholder="Symbol">
+            </div>
+            <br />
+            <button type="submit" class="btn btn-primary">Request Quote</button>
+        </div>
+    </form>
+
+{% endblock %}

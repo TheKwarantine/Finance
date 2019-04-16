@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quoted
+{% endblock %}
+
+{% block main %}
+
+    <!-- Maintain Quote request at top of page -->
+
+    <br />
+
+    <form action="/quote" method="post">
+        <div class="form-group">
+            <div class="col">
+                <label for="stock" class="sr-only">Symbol</label>
+                <input name="stock" class="form-control" autocomplete="off" autofocus type="text" id="stock" placeholder="Symbol">
+            </div>
+            <br />
+            <button type="submit" class="btn btn-primary">Request Quote</button>
+        </div>
+    </form>
+
+    <p><br/></p>
+
+    <table class="table table-striped table-hover">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Symbol</th>
+          <th scope="col">Company Name</th>
+          <th scope="col">Current Price</th>
+          <th scope="col">52 Week High</th>
+          <th scope="col">52 Week Low</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">{{ quote["symbol"] }}</th>
+          <td>{{ quote["name"] }}</td>
+          <td>{{ stock_price }}</td>
+          <td>{{ quote["52whigh"] }}</td>
+          <td>{{ quote["52wlow"] }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+{% endblock %}

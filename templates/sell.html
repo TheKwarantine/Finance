@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    SELL!!
+{% endblock %}
+
+{% block main %}
+
+    <!-- Quote at top of page -->
+
+    <br />
+
+    <form action="/sell" method="post">
+        <div class="form-group">
+            <div class="col">
+                <label for="symbol" class="sr-only">Symbol</label>
+                <select name="symbol" class="form-control" autofocus id="symbol" placeholder="Symbol">
+
+                    {% for row in symbols %}
+
+                        {% if row['shares'] > 0 %}
+
+                            <option value="{{ row['ticker'] }}">{{ row['ticker'] }} - own {{ row['shares'] }} shares</option>
+
+                        {% endif %}
+
+                    {% endfor %}
+
+                </select>
+            </div>
+            <br />
+            <div class="col">
+                <label for="shares" class="sr-only">Shares</label>
+                <input name="shares" class="form-control" autocomplete="off" type="text" id="shares" placeholder="Shares">
+            </div>
+            <br />
+            <button type="submit" class="btn btn-primary">Sell</button>
+        </div>
+    </form>
+
+{% endblock %}

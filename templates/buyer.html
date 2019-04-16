@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Buy
+{% endblock %}
+
+{% block main %}
+
+    <!-- Search at the top of page -->
+
+    <br />
+
+    <form action="/buy" method="post">
+        <div class="form-group">
+            <div class="col">
+                <label for="purchase" class="sr-only">Symbol</label>
+                <input name="buyTicker" class="form-control" type="text" id="purchase" placeholder="Symbol to Purchase">
+            </div>
+            <br />
+            <div class="col">
+                <label for="count" class="sr-only">Number of Shares</label>
+                <input name="buyCount" class="form-control" type="text" id="count" placeholder="Number of Shares">
+            </div>
+            <button type="submit" class="btn btn-primary">Purchase</button>
+        </div>
+    </form>
+    <p><br /></p>
+    <p>
+        {{ userCash }}
+    </p>
+
+{% endblock %}

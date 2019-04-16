@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Buy
+{% endblock %}
+
+{% block main %}
+
+    <!-- Search at the top of page -->
+
+    <p>
+        <h3>Your current available balance is {{ balance }}.</h3><br />
+    </p>
+
+    <form action="/buy" method="post">
+        <div class="form-group">
+            <div class="col">
+                <label for="symbol" class="sr-only">Symbol</label>
+                <input name="symbol" class="form-control" autocomplete="off" autofocus type="text" id="symbol" placeholder="Symbol to Purchase">
+            </div>
+            <br />
+            <div class="col">
+                <label for="shares" class="sr-only">Number of Shares</label>
+                <input name="shares" class="form-control" type="text" autocomplete="off" id="shares" placeholder="Number of Shares">
+            </div>
+            <br />
+            <button type="submit" class="btn btn-primary">Purchase</button>
+        </div>
+    </form>
+
+{% endblock %}
